@@ -56,7 +56,12 @@ module.exports = {
         })
         let index = finditem.id - 1
 
-        users.splice(index, 1, { email })
+        users.splice(index, 1, {
+            id: finditem.id, firstname: finditem.firstname,
+            lastname: finditem.lastname, username: finditem.username,
+            address: finditem.address, email,
+            password: finditem.password, age: finditem.age
+        })
         console.log('req', req.body);
 
         res.status(200).send({
