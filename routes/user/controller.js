@@ -69,6 +69,24 @@ module.exports = {
             data: users
 
         })
+    },
+
+    postData: (req, res) => {
+        try {
+            const data = req.body
+            const file = req.file
+            // console.log(file);
+
+            users.push({ ...data, avatar: file.path })
+
+            res.status(200).send({
+                message: `data edited`,
+                data: users
+            })
+        } catch (error) {
+            console.log(error);
+        }
+
     }
 
 }
